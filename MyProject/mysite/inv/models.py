@@ -2,7 +2,15 @@ from django.db import models
 from django.utils import timezone
 
 # Create your models here.
+class Search(models.Model):
+    search = models.CharField(max_length=500)
+    created = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return '{}'.format(self.search)
+
+    class Meta:
+        verbose_name_plural = 'Searches'
 
 class DecommissionTB(models.Model):
     DecommissionTB_RITM = models.CharField(max_length=15, primary_key=True)
